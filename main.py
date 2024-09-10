@@ -307,19 +307,23 @@ def recomendacion(titulo: str):
       encuentra en el DataFrame.
     """
     # Verifica si el título está en el DataFrame
-    if titulo not in peliculas_df['title'].values:
+    if titulo.lower() not in peliculas_df['title'].str.lower().values:
         raise HTTPException(status_code=404, detail="Película no encontrada")
 
-    # Encontrar el índice de la película
-    indice = peliculas_df[peliculas_df['title'] == titulo].index[0]
+    try:
+        # Encontrar el índice de la película
+        indice = peliculas_df[peliculas_df['title'].str.lower() == titulo.lower()].index[0]
 
-    # Obtener las similitudes para la película seleccionada
-    similitudes = list(enumerate(coseno_similaridad[indice]))
+        # Obtener las similitudes para la película seleccionada
+        similitudes = list(enumerate(coseno_similaridad[indice]))
 
-    # Ordenar las películas por similitud
-    similitudes = sorted(similitudes, key=lambda x: x[1], reverse=True)
+        # Ordenar las películas por similitud
+        similitudes = sorted(similitudes, key=lambda x: x[1], reverse=True)
 
-    # Obtener las 5 películas más similares
-    recomendaciones = [peliculas_df['title'].iloc[i[0]] for i in similitudes[1:6]]  # Excluye la película misma
+        # Obtener las 5 películas más similares
+        recomendaciones = [peliculas_df['title'].iloc[i[0]] for i in similitudes[1:6]]  # Excluye la película misma
 
-    return {"Recomendaciones": recomendaciones}
+        return {"Recomendaciones": recomendaciones}
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
