@@ -245,3 +245,41 @@ def get_actor(nombre_actor: str):
         "Retorno total": total_retornado,
         "Promedio de retorno": promedio_retorno
     }
+
+# 6. Información sobre un director
+@app.get("/get_director/{nombre_director}")
+def get_director(nombre_director: str):
+    """
+    Obtiene información sobre las películas dirigidas por un director específico.
+
+    Parámetros:
+    nombre_director (str): El nombre del director cuyas películas se desean consultar.
+
+    Retorna:
+    dict: Un diccionario con la siguiente información:
+        - "Director": Nombre del director.
+        - "Películas": Lista de diccionarios, cada uno conteniendo la información de una película
+          (título, fecha de lanzamiento, retorno de inversión y presupuesto).
+        - "Retorno total": La suma del retorno de inversión de todas las películas del director.
+
+    Respuesta de error:
+    dict: Un diccionario con un mensaje de error si el director no se encuentra en los registros
+          de películas.
+          - "error": Mensaje indicando que el director no fue encontrado.
+    """
+    # Filtrar las películas donde el director coincide
+    peliculas_director = credit_df[credit_df['Director'].str.lower() == nombre_director.lower()]
+    
+    if peliculas_director.empty:
+        return {"error": "Director no encontrado"}
+
+    # Unir el DataFrame de películas con el de créditos para obtener la información de las películas
+    peliculas_info = peliculas_df[peliculas_df['id'].isin(peliculas_director['id'])]
+
+    retorno_total = peliculas_info['return'].sum()
+
+    return {
+        "Director": nombre_director,
+        "Películas": peliculas_info[['title', 'release_date', 'return', 'budget']].to_dict(orient='records'),
+        "Retorno total": retorno_total
+    }
