@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 from sklearn.metrics.pairwise import cosine_similarity 
 import numpy as np
-
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 app = FastAPI()
 
@@ -17,6 +17,12 @@ credit_df = pd.read_csv('credit_df.csv')
 
 # Funciones para los endpoint
 
+# Vectorizar las descripciones (usa 'overview' como base)
+tfidf = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf.fit_transform(peliculas_df['overview'])
+coseno_similaridad = cosine_similarity(tfidf_matrix)
+
+# Función para convertir nombres de meses en español a números de mes
 def mes_a_numero(mes: str) -> int:
     """
     Convierte el nombre de un mes en español a su número correspondiente.
