@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 import pandas as pd
 from datetime import datetime
-from sklearn.metrics.pairwise import cosine_similarity 
 import numpy as np
 
 
