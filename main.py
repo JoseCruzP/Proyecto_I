@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 from sklearn.metrics.pairwise import cosine_similarity 
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
+
 
 app = FastAPI()
 
@@ -16,11 +16,6 @@ credit_df = pd.read_csv('credit_df.csv')
 
 
 # Funciones para los endpoint
-
-# Vectorizar las descripciones (usa 'overview' como base)
-tfidf = TfidfVectorizer(stop_words='english')
-tfidf_matrix = tfidf.fit_transform(peliculas_df['overview'])
-coseno_similaridad = cosine_similarity(tfidf_matrix)
 
 # Función para convertir nombres de meses en español a números de mes
 def mes_a_numero(mes: str) -> int:
@@ -292,40 +287,3 @@ def get_director(nombre_director: str):
         "Retorno total": retorno_total
     }
 
-# 7. Recomendación de películas por título 
-@app.get("/recomendacion/{titulo}")
-def recomendacion(titulo: str):
-    """
-    Recomendación de películas basadas en un título específico.
-
-    Este endpoint recibe un título de película y devuelve una lista de 
-    las 5 películas más similares basadas en la similitud de coseno.
-
-    Parámetros:
-    - titulo (str): El título de la película para la cual se desean recomendaciones.
-
-    Retorna:
-    - dict: Un diccionario con la clave "Recomendaciones", que contiene una lista 
-      de los títulos de las 5 películas más similares.
-
-    Excepciones:
-    - HTTPException: Se lanza un error 404 si el título de la película no se 
-      encuentra en el DataFrame.
-    """
-    # Verifica si el título está en el DataFrame
-    if titulo not in peliculas_df['title'].values:
-        raise HTTPException(status_code=404, detail="Película no encontrada")
-
-    # Encontrar el índice de la película
-    indice = peliculas_df[peliculas_df['title'] == titulo].index[0]
-
-    # Obtener las similitudes para la película seleccionada
-    similitudes = list(enumerate(coseno_similaridad[indice]))
-
-    # Ordenar las películas por similitud
-    similitudes = sorted(similitudes, key=lambda x: x[1], reverse=True)
-
-    # Obtener las 5 películas más similares
-    recomendaciones = [peliculas_df['title'].iloc[i[0]] for i in similitudes[1:6]]  # Excluye la película misma
-
-    return {"Recomendaciones": recomendaciones}
