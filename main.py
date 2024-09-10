@@ -15,14 +15,32 @@ credit_df = pd.read_csv('credit_df.csv')
 
 # Funciones para los endpoint
 
-# Función para convertir nombres de meses en español a números de mes
 def mes_a_numero(mes: str) -> int:
+    """
+    Convierte el nombre de un mes en español a su número correspondiente.
+
+    Parámetros:
+    mes (str): El nombre del mes en español. Se acepta cualquier combinación de mayúsculas y minúsculas.
+
+    Retorna:
+    int: El número del mes correspondiente (1 para enero, 2 para febrero, etc.).
+         Retorna 0 si el nombre del mes no es válido.
+
+    Ejemplos:
+    >>> mes_a_numero("enero")
+    1
+    >>> mes_a_numero("Junio")
+    6
+    >>> mes_a_numero("mes desconocido")
+    0
+    """
     meses = {
         "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5,
         "junio": 6, "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10,
         "noviembre": 11, "diciembre": 12
     }
     return meses.get(mes.lower(), 0)
+
 
 
 #### End Points ####
