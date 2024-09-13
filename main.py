@@ -227,28 +227,22 @@ def get_actor(nombre_actor: str):
         "error": "Actor no encontrado"
     }
     """
-    # Filtrar las películas donde el actor está en el reparto
-    peliculas_actor = credit_df[credit_df['reparto'].str.contains(nombre_actor, na=False)]
-    
-    if peliculas_actor.empty:
+    actor_df = credit_df[credit_df['reparto'].str.contains(nombre_actor, case=False, na=False)]
+    if actor_df.empty:
         return {"error": "Actor no encontrado"}
 
-    # Unir el DataFrame de películas con el de créditos para obtener el retorno
-    peliculas_info = peliculas_df[peliculas_df['id'].isin(peliculas_actor['id'])]
-    
-    total_retornado = peliculas_info['return'].sum()
-    total_peliculas = len(peliculas_info)
-
-    promedio_retorno = total_retornado / total_peliculas if total_peliculas > 0 else 0
+    peliculas_actor = peliculas_df[peliculas_df['id'].isin(actor_df['id'])]
+    cantidad_filmaciones = len(peliculas_actor)
+    retorno_total = peliculas_actor['return'].sum()
+    promedio_retorno = peliculas_actor['return'].mean()
 
     return {
         "Actor": nombre_actor,
-        "Cantidad de filmaciones": total_peliculas,
-        "Retorno total": total_retornado,
+        "Cantidad de filmaciones": cantidad_filmaciones,
+        "Retorno total": retorno_total,
         "Promedio de retorno": promedio_retorno
     }
 
-# 6. Información sobre un director
 @app.get("/get_director/{nombre_director}")
 def get_director(nombre_director: str):
     """
@@ -269,20 +263,28 @@ def get_director(nombre_director: str):
           de películas.
           - "error": Mensaje indicando que el director no fue encontrado.
     """
-    # Filtrar las películas donde el director coincide
-    peliculas_director = credit_df[credit_df['Director'].str.lower() == nombre_director.lower()]
-    
-    if peliculas_director.empty:
+    director_df = credit_df[credit_df['Director'].str.contains(nombre_director, case=False, na=False)]
+    if director_df.empty:
         return {"error": "Director no encontrado"}
-
-    # Unir el DataFrame de películas con el de créditos para obtener la información de las películas
-    peliculas_info = peliculas_df[peliculas_df['id'].isin(peliculas_director['id'])]
-
-    retorno_total = peliculas_info['return'].sum()
+    
+    peliculas_director = peliculas_df[peliculas_df['id'].isin(director_df['id'])]
+    detalles_peliculas = [
+        {
+            "Título": row['title'],
+            "Fecha de lanzamiento": row['release_date'],
+            "Retorno": row['return'],
+            "Costo": row['budget'],
+            "Ganancia": row['revenue']
+        } for _, row in peliculas_director.iterrows()
+    ]
+    retorno_total = peliculas_director['return'].sum()
 
     return {
         "Director": nombre_director,
-        "Películas": peliculas_info[['title', 'release_date', 'return', 'budget']].to_dict(orient='records'),
-        "Retorno total": retorno_total
+        "Retorno total": retorno_total,
+        "Películas": detalles_peliculas
     }
 
+
+
+    
