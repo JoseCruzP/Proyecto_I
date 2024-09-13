@@ -1,3 +1,4 @@
+# Importando las librerías necesarias para la API
 
 from fastapi import FastAPI
 import pandas as pd
@@ -8,16 +9,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI()
 
-# Carga de bases de datos
-
-# Cargar los DataFrame
+# Carga de las bases de datos
 peliculas_df = pd.read_csv('movies_df.csv')
 credit_df = pd.read_csv('credit_df.csv')
 
+# Función para convertir nombres de meses en español a números de mes,
+# esto con el fin de filtrar los meses en el dataset
 
-# Funciones para los endpoint
-
-# Función para convertir nombres de meses en español a números de mes
 def mes_a_numero(mes: str) -> int:
     """
     Convierte el nombre de un mes en español a su número correspondiente.
@@ -45,8 +43,9 @@ def mes_a_numero(mes: str) -> int:
     return meses.get(mes.lower(), 0)
 
 
-
-#### End Points ####
+###################################################
+################# End Points ######################
+###################################################
 
 # 1. Cantidad de filmaciones por mes
 @app.get("/cantidad_filmaciones_mes/{mes}")
@@ -58,7 +57,7 @@ def cantidad_filmaciones_mes(mes: str):
     que se estrenaron en ese mes, utilizando el DataFrame `peliculas_df`.
 
     Parámetros:
-    mes (str): El nombre del mes en inglés o español (e.g., "enero", "February").
+    mes (str): El nombre del mes en inglés o español ("enero", "February").
 
     Retorna:
     dict: Un diccionario que contiene la cantidad de películas estrenadas en el mes
@@ -164,7 +163,7 @@ def votos_titulo(titulo: str):
     de una película específica, identificada por su título.
 
     Parámetros:
-    - titulo (str): El título de la película a buscar. Se ignorará el caso.
+    - titulo (str): El título de la película a buscar. 
 
     Respuestas:
     - Si la película se encuentra y tiene 2000 o más votos:
@@ -200,8 +199,9 @@ def votos_titulo(titulo: str):
 @app.get("/get_actor/{nombre_actor}")
 def get_actor(nombre_actor: str):
     """
-    Obtiene información sobre un actor específico, incluyendo la cantidad de películas en las que ha participado, 
-    el retorno total de esas películas y el promedio de retorno.
+    Obtiene información sobre un actor específico, incluyendo la cantidad 
+    de películas en las que ha participado, el retorno total de esas 
+    películas y el promedio de retorno.
 
     Parámetros:
     nombre_actor (str): El nombre del actor cuyo información se desea obtener.
@@ -244,6 +244,7 @@ def get_actor(nombre_actor: str):
         "Promedio de retorno": promedio_retorno
     }
 
+# 6. Información sobre un director
 @app.get("/get_director/{nombre_director}")
 def get_director(nombre_director: str):
     """
@@ -255,7 +256,7 @@ def get_director(nombre_director: str):
     Retorna:
     dict: Un diccionario con la siguiente información:
         - "Director": Nombre del director.
-        - "Películas": Lista de diccionarios, cada uno conteniendo la información de una película
+        - "Películas": Lista de diccionarios, cada uno contiene la información de una película
           (título, fecha de lanzamiento, retorno de inversión y presupuesto).
         - "Retorno total": La suma del retorno de inversión de todas las películas del director.
 
