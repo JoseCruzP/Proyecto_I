@@ -3,6 +3,7 @@ from fastapi import FastAPI
 import pandas as pd
 from datetime import datetime
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 app = FastAPI()
@@ -285,6 +286,38 @@ def get_director(nombre_director: str):
         "Películas": detalles_peliculas
     }
 
+# 7. Recomendación de películas por título 
+@app.get("/recomendacion/{titulo}")
+def recomendacion(titulo: str):
+    """
+    Endpoint que recomienda películas similares a una película dada utilizando
+    la métrica de similitud del coseno basada en la popularidad.
 
+    Parámetros:
+        titulo (str): El título de la película para la cual se desean recomendaciones.
 
+    Retorna:
+        dict: Un diccionario con una lista de películas recomendadas o un mensaje de error 
+        si la película no es encontrada.
+
+    Ejemplo:
+        Si se envía "Inception" como título, el endpoint devuelve las 5 películas más 
+        similares basadas en la popularidad.
+    """
+    # Buscar la película con el título proporcionado (sin distinción entre mayúsculas y minúsculas)
+    pelicula = peliculas_df[peliculas_df['title'].str.lower() == titulo.lower()]
     
+    # Verificar si la película fue encontrada
+    if pelicula.empty:
+        return {"error": "Película no encontrada"}
+
+    # Obtener las demás películas que no tienen el mismo título
+    peliculas_resto = peliculas_df[peliculas_df['title'].str.lower() != titulo.lower()]
+    
+    # Calcular la similitud del coseno utilizando la columna 'popularity'
+    peliculas_resto['similitud'] = cosine_similarity([pelicula['popularity'].values], peliculas_resto[['popularity']])[0]
+    
+    # Ordenar las películas por similitud y obtener las 5 más similares
+    recomendadas = peliculas_resto.sort_values(by='similitud', ascending=False).head(5)['title'].tolist()
+
+    return {"Películas recomendadas": recomendadas}
