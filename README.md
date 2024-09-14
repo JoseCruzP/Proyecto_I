@@ -25,4 +25,13 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 9. [Contacto](#contacto)
 
 
-#Instalación y requisitos
+# Instalación y requisitos
+
+## Requisitos:
+- Python 3.7 o superior
+- pandas
+- numpy
+- matplotlib
+- scikit-learn
+
+## Pasos de instalación:
