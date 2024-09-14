@@ -1,9 +1,25 @@
 # Machine Learning Operations (MLOps)
-Este proyecto es una API para recomendar películas basada en Machine Learning y FastAPI. Fue desarrollado como parte de un proyecto de MLOps.
+Este proyecto consiste en una API para recomendar películas basada en Machine Learning y FastAPI. Fue desarrollado como parte de un proyecto de MLOps.
 
 ## Descripción
-Este proyecto es un sistema de recomendación de películas desarrollado como parte de un proyecto individual en el curso de Data Science de Henry. Utiliza técnicas de Machine Learning y análisis de datos para sugerir películas a los usuarios en función de sus preferencias y comportamientos.
+El sistema de recomendación de películas desarrollado,  es parte de un proyecto individual en el curso de Data Science de *Henry*. Utiliza técnicas de Machine Learning y análisis de datos para sugerir películas a los usuarios en función de sus preferencias y comportamientos.
 
 <p align="center">
   <img src="./pelicula.png" alt="Película" width="600"/>
 </p>
+
+Se simula el trabajo de Data Scientist en una start-up que provee servicios de agregación de plataformas de streaming.
+
+## Tabla de Contenidos
+1. [Cómo Ejecutar el Proyecto](#cómo-ejecutar-el-proyecto)
+2. [Guía de uso rápido](#guía-de-uso-rápido)
+3. [Data Engineering](#data-engineering)
+   - [Repositorio y Conjuntos de Datos](#repositorio-y-conjuntos-de-datos)
+   - [Preprocesamiento de Datos](#preprocesamiento-de-datos)
+   - [Descripción del Proyecto](#descripción-del-proyecto)
+4. [Funciones de la API](#funciones-de-la-api)
+5. [Deployment y la API](#deployment-y-la-api)
+6. [Archivos Generados](#archivos-generados)
+7. [Contribuciones y Colaboraciones](#contribuciones-y-colaboraciones)
+8. [Links](#links)
+9. [Contacto](#contacto)
