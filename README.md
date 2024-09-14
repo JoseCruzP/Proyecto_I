@@ -55,3 +55,7 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
      source venv/bin/activate
 
 4. Instalar las dependencias:
+   
+   ```bash
+   pip install -r requirements.txt
+
