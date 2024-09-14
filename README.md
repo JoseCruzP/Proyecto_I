@@ -25,4 +25,4 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 9. [Contacto](#contacto)
 
 
-# Instalación y requisitos
+#Instalación y requisitos
