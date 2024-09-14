@@ -11,8 +11,8 @@ El sistema de recomendación de películas desarrollado,  es parte de un proyect
 Se simula el trabajo de Data Scientist en una start-up que provee servicios de agregación de plataformas de streaming.
 
 ## Tabla de Contenidos
-1. [Cómo Ejecutar el Proyecto](#cómo-ejecutar-el-proyecto)
-2. [Guía de uso rápido](#guía-de-uso-rápido)
+1. [Instalación y requisitos](#Instalación-y-requisitos).
+2. [Instalación y requisitos](#guía-de-uso-rápido)
 3. [Data Engineering](#data-engineering)
    - [Repositorio y Conjuntos de Datos](#repositorio-y-conjuntos-de-datos)
    - [Preprocesamiento de Datos](#preprocesamiento-de-datos)
@@ -23,3 +23,6 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 7. [Contribuciones y Colaboraciones](#contribuciones-y-colaboraciones)
 8. [Links](#links)
 9. [Contacto](#contacto)
+
+
+# Instalación y requisitos
