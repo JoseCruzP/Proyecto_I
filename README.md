@@ -12,17 +12,16 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 
 ## Tabla de Contenidos
 1. [Instalación y requisitos](#Instalación-y-requisitos)
-2. [Instalación y requisitos](#guía-de-uso-rápido)
-3. [Data Engineering](#data-engineering)
+2. [Data Engineering](#Data-engineering)
    - [Repositorio y Conjuntos de Datos](#repositorio-y-conjuntos-de-datos)
    - [Preprocesamiento de Datos](#preprocesamiento-de-datos)
    - [Descripción del Proyecto](#descripción-del-proyecto)
-4. [Funciones de la API](#funciones-de-la-api)
-5. [Deployment y la API](#deployment-y-la-api)
-6. [Archivos Generados](#archivos-generados)
-7. [Contribuciones y Colaboraciones](#contribuciones-y-colaboraciones)
-8. [Links](#links)
-9. [Contacto](#contacto)
+3. [Funciones de la API](#funciones-de-la-api)
+4. [Deployment y la API](#deployment-y-la-api)
+5. [Archivos Generados](#archivos-generados)
+6. [Contribuciones y Colaboraciones](#contribuciones-y-colaboraciones)
+7. [Links](#links)
+8. [Contacto](#contacto)
 
 
 # Instalación y requisitos
@@ -59,3 +58,5 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
    ```bash
    pip install -r requirements.txt
 
+
+# Data Engineering
