@@ -13,9 +13,9 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 ## Tabla de Contenidos
 1. [Instalación y requisitos](#Instalación-y-requisitos)
 2. [Data Engineering](#Data-engineering)
-   - [Repositorio y Conjuntos de Datos](#repositorio-y-conjuntos-de-datos)
-   - [Preprocesamiento de Datos](#preprocesamiento-de-datos)
-   - [Descripción del Proyecto](#descripción-del-proyecto)
+   - [Repositorio y Conjuntos de Datos](#Repositorio-y-conjuntos-de-datos)
+   - [Preprocesamiento de Datos](#Preprocesamiento-de-datos)
+   - [Descripción del Proyecto](#Descripción-del-proyecto)
 3. [Funciones de la API](#funciones-de-la-api)
 4. [Deployment y la API](#deployment-y-la-api)
 5. [Archivos Generados](#archivos-generados)
@@ -60,3 +60,10 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 
 
 # Data Engineering
+
+## Repositorio y conjuntos de datos
+
+ - El repositorio original del proyecto se encuentra disponible en [GitHub](https://github.com/soyHenry/fe-ct-pimlops2)
+.
+
+## Preprocesamiento de datos
