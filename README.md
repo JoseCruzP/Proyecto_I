@@ -123,3 +123,15 @@ El proyecto también incluye la implementación de una API para proporcionar acc
                     Ejemplo de retorno: El actor `X` ha participado de X cantidad de filmaciones, el mismo ha conseguido un retorno de `X` con un promedio de `X` por filmación
 
 6. def get_director( `nombre_director` ): Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma.
+
+    Para más información se puede consultar la documentación de la api en : [https://proyecto-i-44rn.onrender.com/docs](https://proyecto-i-44rn.onrender.com/docs)
+
+# Deployment 
+
+La API puede ser probada en local utilizando uvicorn con el siguiente comando dentro de la carpeta raíz del proyecto:
+
+```python
+uvicorn main:app --reload
+```
+
+la API está deployada en Render, cada modificación hecha en el archivo main.py se verá de forma automática en uvicorn, pero debe ser actualizada manualmente en el Deploy de Render.
