@@ -81,7 +81,7 @@ Se realiza la carga y limpieza de los conjuntos de datos utilizando Python y las
 puedes revisar más en detalle los pasos realizados dentro del archivo [ETL_y_EDA_Proyecto_individual_I.ipynb](ETL_y_EDA_Proyecto_individual_I.ipynb)
 
 
-Descripción del Proyecto
+## Descripción del Proyecto
 
 El proceso de ETL (extracción, transformación y carga) se divide en las siguientes secciones principales:
 
@@ -103,4 +103,23 @@ El EDA (análisis exploratorio de datos) se divide en las siguientes secciones p
 
 - Finalmente, se tomó una muestra de 30,000 filas para el deploy de la API, esto debido al tamaño de archivos soportado por la versión gratuira de [Render](https://render.com/).
 
+# Funciones de la API
 
+El proyecto también incluye la implementación de una API para proporcionar acceso a datos procesados y funcionalidades específicas. Esta fue desarrollada en el archivo main.py. Las principales funciones de la API incluyen:
+
+1. def cantidad_filmaciones_mes( `Mes` ): Se ingresa un mes en idioma Español. Debe devolver la cantidad de películas que fueron estrenadas en el mes consultado en la totalidad del dataset.
+                    Ejemplo de retorno: `X` cantidad de películas fueron estrenadas en el mes de `X`
+
+2. def cantidad_filmaciones_dia( `Dia` ): Se ingresa un día en idioma Español. Debe devolver la cantidad de películas que fueron estrenadas en día consultado en la totalidad del dataset.
+                    Ejemplo de retorno: `X` cantidad de películas fueron estrenadas en los días `X`
+
+3. def score_titulo( `titulo_de_la_filmación` ): Se ingresa el título de una filmación esperando como respuesta el título, el año de estreno y el score.
+                    Ejemplo de retorno: La película `X` fue estrenada en el año X con un score/popularidad de `X`
+
+4. def votos_titulo( `titulo_de_la_filmación` ): Se ingresa el título de una filmación esperando como respuesta el título, la cantidad de votos y el valor promedio de las votaciones. La misma variable deberá de contar con al menos 2000 valoraciones, caso contrario, debemos contar con un mensaje avisando que no cumple esta condición y que por ende, no se devuelve ningun valor.
+                    Ejemplo de retorno: La película X fue estrenada en el año X. La misma cuenta con un total de `X` valoraciones, con un promedio de `X`
+
+5. def get_actor( `nombre_actor` ): Se ingresa el nombre de un actor que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. Además, la cantidad de películas que en las que ha participado y el promedio de retorno. La definición no deberá considerar directores.
+                    Ejemplo de retorno: El actor `X` ha participado de X cantidad de filmaciones, el mismo ha conseguido un retorno de `X` con un promedio de `X` por filmación
+
+6. def get_director( `nombre_director` ): Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno. Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma.
