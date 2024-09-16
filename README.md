@@ -82,10 +82,25 @@ puedes revisar más en detalle los pasos realizados dentro del archivo [ETL_y_ED
 
 
 Descripción del Proyecto
-El proyecto se divide en las siguientes secciones principales:
 
-Exploración de Datos: Análisis inicial de los conjuntos de datos para comprender su estructura y características.
-Limpieza de Datos: Proceso de limpieza y preprocesamiento de los datos para eliminar valores nulos, duplicados y realizar correcciones.
-Transformación de Datos: Conversión de tipos de datos, extracción de información relevante y preparación de los datos para su análisis.
-Análisis de Sentimientos: Utilización de análisis de sentimientos para evaluar las opiniones de los usuarios en las reseñas de juegos, se utiliza la librería nltk y el vader_lexicon
-Generación de Reportes: Creación de visualizaciones y reportes estadísticos para identificar patrones y tendencias en los datos.
+El proceso de ETL (extracción, transformación y carga) se divide en las siguientes secciones principales:
+
+- Exploración inicial de Datos: Análisis inicial de los conjuntos de datos para comprender su estructura y características.
+- Limpieza de Datos: Proceso de limpieza y preprocesamiento de los datos para eliminar valores nulos, duplicados y realizar correcciones.
+- Transformación de Datos: Conversión de tipos de datos, extracción de información relevante y preparación de los datos para su análisis.
+
+El EDA (análisis exploratorio de datos) se divide en las siguientes secciones principales:
+
+- Resumen general de los datos: Las películas tienen presupuestos y recaudaciones con alta variabilidad, donde muchas tienen valores cercanos a 0. La duración promedio es de 94 minutos y el promedio de votos es de 5.6.
+
+- Valores faltantes: Las columnas más importantes, como budget, genres y revenue, no tienen valores faltantes. Sin embargo, columnas como overview y tagline presentan un número significativo de datos faltantes.
+
+- Distribución de variables: La mayoría de las películas tienen presupuestos, ingresos y retornos bajos, mientras que unas pocas alcanzan valores extremadamente altos. El inglés es el idioma dominante y la mayoría de las películas están en estado "Released".
+
+- Relaciones entre variables: Existe una correlación positiva entre el número de votos, el presupuesto y los ingresos, lo que sugiere que películas con mayor presupuesto tienden a generar más votos e ingresos.
+
+- Análisis temporal: La producción y los ingresos de películas aumentan significativamente a partir de los años 80, con un pico hacia el 2000. La cantidad de películas producidas crece exponencialmente hasta 2015, pero decrece ligeramente después, posiblemente debido al impacto del COVID-19.
+
+- Finalmente, se tomó una muestra de 30,000 filas para el deploy de la API, esto debido al tamaño de archivos soportado por la versión gratuira de [Render](https://render.com/).
+
+
