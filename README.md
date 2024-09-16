@@ -138,5 +138,7 @@ la API está deployada en Render, cada modificación hecha en el archivo main.py
 Para obtener más información o realizar preguntas sobre el proyecto, puedes ponerte en contacto con el autor:
 
 Nombre: Jose Yesid Cruz
+
 Correo Electrónico: [jose-1941@hotmail.com)
+
 LinkedIn: [https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/](https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/)
