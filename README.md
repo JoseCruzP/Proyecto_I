@@ -65,6 +65,27 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
 
  - El repositorio original del proyecto se encuentra disponible en [GitHub](https://github.com/soyHenry/fe-ct-pimlops2)
  - Los conjuntos de datos utilizados se encuentran disponibles en [Google Drive](https://drive.google.com/drive/folders/1X_LdCoGTHJDbD28_dJTxaD4fVuQC9Wt5).
- - El diccionario con algunas descripciones de las columnas se encuentran disponibles en [Google Drive](https://docs.google.com/spreadsheets/d/1QkHH5er-74Bpk122tJxy_0D49pJMIwKLurByOfmxzho/edit?gid=0#gid=0).
+ - El diccionario con algunas descripciones de las columnas se encuentra disponible en [Google Drive](https://docs.google.com/spreadsheets/d/1QkHH5er-74Bpk122tJxy_0D49pJMIwKLurByOfmxzho/edit?gid=0#gid=0).
 
 ## Preprocesamiento de datos
+
+Se realiza la carga y limpieza de los conjuntos de datos utilizando Python y las siguientes librerías:
+
+ - ast
+ - pandas
+ - numpy
+ - matplotlib
+ - sklearn
+ - seaborn
+
+puedes revisar más en detalle los pasos realizados dentro del archivo [ETL_y_EDA_Proyecto_individual_I.ipynb](ETL_y_EDA_Proyecto_individual_I.ipynb)
+
+
+Descripción del Proyecto
+El proyecto se divide en las siguientes secciones principales:
+
+Exploración de Datos: Análisis inicial de los conjuntos de datos para comprender su estructura y características.
+Limpieza de Datos: Proceso de limpieza y preprocesamiento de los datos para eliminar valores nulos, duplicados y realizar correcciones.
+Transformación de Datos: Conversión de tipos de datos, extracción de información relevante y preparación de los datos para su análisis.
+Análisis de Sentimientos: Utilización de análisis de sentimientos para evaluar las opiniones de los usuarios en las reseñas de juegos, se utiliza la librería nltk y el vader_lexicon
+Generación de Reportes: Creación de visualizaciones y reportes estadísticos para identificar patrones y tendencias en los datos.
