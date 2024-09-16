@@ -139,6 +139,6 @@ Para obtener más información o realizar preguntas sobre el proyecto, puedes po
 
 Nombre: Jose Yesid Cruz
 
-Correo Electrónico: [jose-1941@hotmail.com)
+Correo Electrónico: jose-1941@hotmail.com
 
 LinkedIn: [https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/](https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/)
