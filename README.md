@@ -16,12 +16,9 @@ Se simula el trabajo de Data Scientist en una start-up que provee servicios de a
    - [Repositorio y Conjuntos de Datos](#Repositorio-y-conjuntos-de-datos)
    - [Preprocesamiento de Datos](#Preprocesamiento-de-datos)
    - [Descripción del Proyecto](#Descripción-del-proyecto)
-3. [Funciones de la API](#funciones-de-la-api)
-4. [Deployment y la API](#deployment-y-la-api)
-5. [Archivos Generados](#archivos-generados)
-6. [Contribuciones y Colaboraciones](#contribuciones-y-colaboraciones)
-7. [Links](#links)
-8. [Contacto](#contacto)
+3. [Funciones de la API](#Funciones-de-la-api)
+4. [Deployment](#Deployment)
+5. [Contacto](#contacto)
 
 
 # Instalación y requisitos
@@ -126,7 +123,7 @@ El proyecto también incluye la implementación de una API para proporcionar acc
 
     Para más información se puede consultar la documentación de la api en : [https://proyecto-i-44rn.onrender.com/docs](https://proyecto-i-44rn.onrender.com/docs)
 
-# Deployment 
+# Deployment
 
 La API puede ser probada en local utilizando uvicorn con el siguiente comando dentro de la carpeta raíz del proyecto:
 
@@ -135,3 +132,11 @@ uvicorn main:app --reload
 ```
 
 la API está deployada en Render, cada modificación hecha en el archivo main.py se verá de forma automática en uvicorn, pero debe ser actualizada manualmente en el Deploy de Render.
+
+# Contacto
+
+Para obtener más información o realizar preguntas sobre el proyecto, puedes ponerte en contacto con el autor:
+
+Nombre: Jose Yesid Cruz
+Correo Electrónico: [jose-1941@hotmail.com)
+LinkedIn: [https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/](https://www.linkedin.com/in/jose-yesid-cruz-pinto-a25b91127/)
